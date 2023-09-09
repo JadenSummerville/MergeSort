@@ -1,5 +1,3 @@
-import { isInteger } from '../PriorityQueue/Tools/isInteger';
-
 export class MergeSort<T>{
     private valueFunction: Function;
     constructor(valueFunction: Function){
