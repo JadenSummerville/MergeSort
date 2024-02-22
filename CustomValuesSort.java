@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
+import Random.Raffle;
 public class CustomValuesSort<T>{
     private static int questionNum = 1;
     public static <T> T[] customSort(T[] inputElements){
@@ -59,10 +60,16 @@ public class CustomValuesSort<T>{
         System.out.println("Enter in your values");
         Scanner scanner = new Scanner(System.in);
         String[] userInput = scanner.nextLine().split(" ");
+        Raffle<String> raffle = new Raffle<>(userInput);
         String[] goal = customSort(Arrays.stream(userInput).toArray(String[]::new));
+        System.out.println("\nHere is the computer choice ranking:");
+        for(int i = 0; i != goal.length; i++){
+            System.out.println((i + 1) + ". " + raffle.pull());
+        }
         System.out.println("\nHere are the following orders:");
         for(int i = 0; i != goal.length; i++){
             System.out.println((i + 1) + ". " + goal[i]);
         }
+        scanner.close();
     }
 }
